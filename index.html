@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emily Saunders & James Elwell | 25th July 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sage-green': '#9CAF88',
+                        'sage-light': '#F1F4EE',
+                        'country-cream': '#FAF9F6',
+                        'deep-leaf': '#4A5D3F'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            background-color: transparent; 
+        }
+        
+        /* FIXED BACKGROUND LAYER */
+        #global-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; 
+            background-color: #9CAF88; 
+            
+            /* GITHUB BACKGROUND IMAGE */
+            background-image: url('https://raw.githubusercontent.com/userno55588777/backgroundjpg/6121e43f357ff02bdd81d8c6148be374f0440e0b/backgroundjpg');
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* GLASS CARD STYLE */
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .floral-divider {
+            color: #9CAF88;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .floral-divider::before, .floral-divider::after {
+            content: "";
+            height: 1px;
+            width: 60px;
+            background: #9CAF88;
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .jumpscare-hover:hover {
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+            background-color: #8B0000 !important; 
+            transform: scale(1.1);
+        }
+
+        /* Modal (Popup) Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 100; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5); 
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #FAF9F6;
+            margin: 15% auto; 
+            padding: 40px;
+            border: 1px solid #9CAF88;
+            border-radius: 4px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="text-gray-800 font-sans">
+
+    <div id="global-background"></div>
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-sage-green/20">
+        <div class="container mx-auto px-6 py-4 grid grid-cols-2 lg:grid-cols-3 items-center">
+            
+            <div class="flex justify-start">
+                <span class="font-serif text-2xl font-bold text-deep-leaf tracking-tighter">E & J</span>
+            </div>
+
+            <div class="hidden lg:flex justify-center items-center space-x-8 text-[10px] uppercase tracking-[0.2em] font-semibold text-gray-600">
+                <a href="#locations" class="hover:text-sage-green transition">Locations</a>
+                <a href="#food" class="hover:text-sage-green transition">Food & Drink</a>
+                <a href="#accommodation" class="hover:text-sage-green transition">Accommodation</a>
+                <a href="#gifts" class="hover:text-sage-green transition">Gifts</a>
+            </div>
+
+            <div class="flex justify-end items-center">
+                <a href="#rsvp" class="hidden lg:inline-block text-[10px] uppercase tracking-[0.2em] font-semibold text-deep-leaf border border-deep-leaf px-5 py-2 rounded hover:bg-deep-leaf hover:text-white transition">RSVP</a>
+                
+                <div class="lg:hidden text-deep-leaf text-xl">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center text-center px-4">
+        <div class="glass-panel p-10 md:p-20 backdrop-blur-sm border border-white/60">
+            <p class="uppercase tracking-[0.4em] text-deep-leaf mb-6 text-xs font-bold">The Wedding of</p>
+            
+            <h1 class="font-serif text-deep-leaf mb-6 flex flex-col items-center gap-2">
+                <span class="text-4xl md:text-7xl">Emily Saunders</span>
+                <span class="text-3xl md:text-5xl italic">&</span>
+                <span class="text-4xl md:text-7xl">James Elwell</span>
+            </h1>
+
+            <div class="floral-divider mb-6 italic font-serif text-deep-leaf text-xl">25th July 2026</div>
+            <p class="text-lg md:text-xl font-serif text-gray-700 tracking-wide">Sambourne, Warwickshire</p>
+        </div>
+    </header>
+
+    <section id="locations" class="py-24 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <div class="inline-block glass-panel px-8 py-4">
+                <h2 class="text-4xl font-serif text-deep-leaf mb-2">The Locations</h2>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div class="glass-panel p-10 rounded-sm shadow-sm border-t-4 border-sage-green flex flex-col justify-between">
+                <div>
+                    <i class="fa-solid fa-church text-3xl text-sage-green mb-6"></i>
+                    <h3 class="text-2xl font-serif text-deep-leaf mb-2">The Ceremony</h3>
+                    <p class="font-bold text-xl mb-1">1:00 PM</p>
+                    <p class="text-sm text-gray-500 mb-4">Arrive from 12:15 PM</p>
+                    <p class="text-gray-600 leading-relaxed">
+                        St Peters Church<br>
+                        Coughton, Alcester<br>
+                        B49 5HY
+                    </p>
+                </div>
+                <div class="mt-10">
+                    <a href="https://maps.app.goo.gl/auEjdqiofCG5ZQvU8" target="_blank" class="inline-flex items-center text-sm uppercase tracking-widest font-bold text-deep-leaf hover:text-sage-green transition group">
+                        <i class="fa-solid fa-location-dot mr-2 group-hover:bounce"></i> View on Google Maps
+                    </a>
+                </div>
+            </div>
+            <div class="glass-panel p-10 rounded-sm shadow-sm border-t-4 border-sage-green flex flex-col justify-between">
+                <div>
+                    <i class="fa-solid fa-house-chimney text-3xl text-sage-green mb-6"></i>
+                    <h3 class="text-2xl font-serif text-deep-leaf mb-2">The Celebration</h3>
+                    <p class="font-bold text-xl mb-4">From 7:30 PM</p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Park House<br>
+                        Wike Lane, Sambourne<br>
+                        B96 6NZ
+                    </p>
+                </div>
+                <div class="mt-10">
+                    <a href="https://maps.app.goo.gl/tyK9QZpxzh4jtMGPA" target="_blank" class="inline-flex items-center text-sm uppercase tracking-widest font-bold text-deep-leaf hover:text-sage-green transition group">
+                        <i class="fa-solid fa-location-dot mr-2 group-hover:bounce"></i> View on Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="food" class="py-24 container mx-auto px-6">
+        <div class="text-center max-w-4xl mx-auto">
+            <div class="glass-panel p-10 mb-10">
+                <h2 class="text-4xl font-serif text-deep-leaf mb-12">Food & Drink</h2>
+                <p class="mb-8 text-lg font-light">
+                    The food will be supplied by <a href="https://thewildoven.co.uk" target="_blank" class="text-sage-green hover:text-deep-leaf underline transition font-medium">The Wild Oven</a>, who will be preparing a wood fired feast cooked in their converted Land Rover Defenders!
+                </p>
+            </div>
+            
+            <div class="mb-10 glass-panel p-8 text-center">
+                <h3 class="text-2xl font-serif text-deep-leaf mb-4">Canapés</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Crispy Pork Belly with a Tangy Apple Sauce<br>
+                    Fresh Tomato Bruschetta<br>
+                    Indian Spiced Cauliflower Steaks<br>
+                    Grass-fed Longhorn Beef Meatballs with Sriracha and Lime Crème
+                </p>
+            </div>
+            <div class="mb-10 glass-panel p-8 text-center">
+                <h3 class="text-2xl font-serif text-deep-leaf mb-2">Starters</h3>
+                <p class="text-sm text-gray-500 italic mb-4">(Served with MOR sourdough bread)</p>
+                <p class="text-gray-600 leading-relaxed">
+                    Chipolatas Glazed in Hoisin, Honey & Sesame Seeds<br>
+                    British Hard Cheese, Drizzled with Orange Blossom Honey<br>
+                    Lamb Koftas with a Sticky Pomegranate Syrup<br>
+                    Roasted Beetroot Dip Topped with Feta
+                </p>
+            </div>
+            <div class="mb-10 glass-panel p-8 text-center">
+                <h3 class="text-2xl font-serif text-deep-leaf mb-4">Mains</h3>
+                <p class="text-gray-600 leading-relaxed mb-8">
+                    Lemon and Thyme Confit Herefordshire Chicken Thighs<br>
+                    Herb-Crusted Rack of Todenham Manor Farm Lamb<br>
+                    Moroccan Spiced Vegetable Tagine with Chermoula (On Request)
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 border-t border-sage-green/20 pt-8">
+                    <div>
+                        <h4 class="font-bold text-deep-leaf mb-3 uppercase tracking-widest text-xs">Salads</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Vibrant Asian Slaw with Kale, Carrot and Red Cabbage Topped with Gochujang and Sesame Dressing<br><br>
+                            New Potato Salad with Extra Virgin Olive Oil, Capers and Red Onion
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-deep-leaf mb-3 uppercase tracking-widest text-xs">Sides</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Aioli<br>
+                            Salsa Verde
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-12 glass-panel p-8 text-center">
+                <h3 class="text-2xl font-serif text-deep-leaf mb-4">Desserts</h3>
+                <p class="text-gray-600">A Selection of Small Desserts</p>
+            </div>
+            <div class="py-4"></div>
+            <div class="glass-panel p-8 border-t-4 border-sage-green text-center">
+                <h3 class="text-2xl font-serif text-deep-leaf mb-4">Evening Food</h3>
+                <p class="mb-6 text-sm">Supplied by <a href="https://www.gourmet-hog-roast-warwickshire.co.uk" target="_blank" class="text-sage-green hover:text-deep-leaf underline transition font-medium">The Gourmet Hog Roast Company</a></p>
+                <h4 class="font-bold text-deep-leaf mb-2 uppercase tracking-widest text-xs">Main</h4>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Free Range Pig, Crackling, Apple Sauce, Stuffing & Fresh Bread Rolls<br>
+                    Vegetarian Alternative Upon Request<br>
+                    Roast Potatoes with Fresh Rosemary and Garlic Cooking in all the Juices of the Hog
+                </p>
+                <h4 class="font-bold text-deep-leaf mb-2 uppercase tracking-widest text-xs">Sides</h4>
+                <p class="text-gray-600 leading-relaxed">
+                    Zesty Coleslaw with Capers and Gherkins<br>
+                    Mediterranean Salad (Green Leaves, Red Onion, Tomatoes and Feta Cheese)<br>
+                    Dressed with Balsamic Vinegar and Extra Virgin Olive Oil
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="accommodation" class="py-24">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <div class="inline-block glass-panel px-8 py-4 mb-12">
+                <h2 class="text-4xl font-serif text-deep-leaf">Accommodation</h2>
+            </div>
+            
+            <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-12 text-left shadow-sm rounded-r-sm">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <i class="fa-solid fa-circle-exclamation text-red-400 mt-1"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-bold text-red-800">Important Note</h3>
+                        <p class="text-sm text-red-700 mt-1">
+                            Please be aware that the <strong>Ragley Hall Game Fair</strong> is taking place on the same weekend! 
+                            Because of this, local hotels and B&Bs are booking up extremely fast. We strongly recommend arranging your accommodation <strong>well in advance</strong> to avoid disappointment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-panel p-10 mb-10 border border-sage-green/20">
+                <i class="fa-solid fa-campground text-4xl text-sage-green mb-6"></i>
+                <h3 class="text-2xl font-serif text-deep-leaf mb-4">Camping On-Site</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    For the adventurous (and those who want to be close to the party), there will be camping available at the venue.
+                </p>
+                <div class="inline-block bg-white px-6 py-3 rounded-sm border border-sage-green text-deep-leaf font-medium">
+                    Please feel free to bring your own tents or campervans!
+                </div>
+            </div>
+            
+            <div class="glass-panel p-6">
+                <p class="text-gray-500 italic">
+                    If you are struggling to find somewhere to stay, please 
+                    <button onclick="openEmailModal()" class="text-deep-leaf underline font-bold hover:text-sage-green bg-transparent border-none cursor-pointer">
+                        contact us directly
+                    </button>
+                    and we will do our best to help make arrangements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gifts" class="py-24 container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto">
+            <div class="glass-panel p-10 mb-10">
+                <h2 class="text-4xl font-serif text-deep-leaf mb-10">Gifts</h2>
+                <div class="mb-10">
+                    <i class="fa-solid fa-plane-departure text-3xl text-sage-green mb-6"></i>
+                    <p class="text-gray-700 leading-loose text-lg font-light">
+                        The most important gift to us is to have you share our day, but should you wish to contribute in some other way, then a help to our honeymoon would be very kind.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="p-10 glass-panel border border-sage-green/20 rounded-sm shadow-lg relative">
+                <div class="absolute top-0 left-0 transform -translate-x-2 -translate-y-4 text-6xl text-sage-green/20 font-serif">“</div>
+                <p class="font-serif italic text-gray-600 leading-8">
+                    We’ve lived together for quite a while,<br>
+                    With all our pots and pans,<br>
+                    And as we don’t need homeware gifts,<br>
+                    We have another plan!<br><br>
+                    We know it’s not traditional,<br>
+                    But an awful lot of fun,<br>
+                    To have items on our wedding list,<br>
+                    To help us catch some sun!
+                </p>
+                <div class="absolute bottom-0 right-0 transform translate-x-2 translate-y-4 text-6xl text-sage-green/20 font-serif rotate-180">“</div>
+            </div>
+            <p class="mt-8 text-xs text-white uppercase tracking-widest drop-shadow-md font-bold text-shadow-md">Thank you</p>
+        </div>
+    </section>
+
+    <section id="rsvp" class="py-24">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-12 glass-panel p-6 bg-sage-green/90 text-deep-leaf">
+                <h2 class="text-4xl font-serif mb-4">RSVP</h2>
+                <p class="font-bold tracking-wide">Please respond by 4th April 2026</p>
+            </div>
+            
+            <div id="successMessage" class="hidden bg-white p-12 rounded-sm shadow-2xl text-center">
+                <i class="fa-solid fa-heart text-5xl text-sage-green mb-6"></i>
+                <h3 class="text-3xl font-serif text-deep-leaf mb-4">Thank You!</h3>
+                <p class="text-gray-600 text-lg mb-2">Your RSVP has been received.</p>
+                <p class="text-gray-500 text-sm">We can't wait to celebrate with you.</p>
+                <button onclick="location.reload()" class="mt-8 text-xs uppercase tracking-widest text-sage-green hover:text-deep-leaf underline font-bold">
+                    Submit another response
+                </button>
+            </div>
+
+            <form id="rsvpForm" class="space-y-6 glass-panel p-8 md:p-12 text-gray-800">
+                
+                <input type="hidden" name="rsvpJson" id="rsvpJson">
+
+                <div id="guestsContainer" class="space-y-8">
+                    <div class="guest-entry border-b border-sage-green/20 pb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-serif text-xl text-deep-leaf">Primary Guest</h3>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block mb-2 text-xs uppercase tracking-widest font-bold text-deep-leaf">Full Name</label>
+                            <input type="text" name="guestName_0" required class="guest-name w-full p-3 bg-country-cream rounded-sm focus:ring-1 focus:ring-sage-green outline-none" placeholder="First & Last Name">
+                        </div>
+
+                        <div class="space-y-3">
+                            <label class="flex items-center p-3 bg-country-cream rounded-sm cursor-pointer hover:bg-sage-light transition">
+                                <input type="checkbox" name="attending_0" class="guest-attending w-5 h-5 accent-sage-green" checked>
+                                <span class="ml-3 font-medium text-gray-700">Will be attending</span>
+                            </label>
+
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <label class="flex items-center flex-1">
+                                    <input type="checkbox" name="vegetarian_0" class="guest-veg w-4 h-4 accent-sage-green">
+                                    <span class="ml-3 text-sm text-gray-600">I require a vegetarian meal</span>
+                                </label>
+                                
+                                <label class="flex items-center flex-1">
+                                    <input type="checkbox" class="dietary-toggle w-4 h-4 accent-sage-green" onchange="toggleDietaryBox(this)">
+                                    <span class="ml-3 text-sm text-gray-600">I have dietary requirements</span>
+                                </label>
+                            </div>
+
+                            <div class="dietary-box hidden mt-2">
+                                <textarea name="dietaryDetails_0" class="guest-diet w-full p-3 bg-country-cream rounded-sm focus:ring-1 focus:ring-sage-green outline-none text-sm" placeholder="Please specify requirements (e.g. Gluten Free, Nut Allergy)..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <button type="button" onclick="addGuest('Guest')" class="py-3 border-2 border-dashed border-sage-green text-sage-green hover:bg-sage-light hover:text-deep-leaf rounded-sm text-xs uppercase tracking-widest font-bold transition">
+                        <i class="fa-solid fa-user-plus mr-2"></i> Add Guest
+                    </button>
+                    <button type="button" onclick="addGuest('Plus One')" class="py-3 border-2 border-dashed border-sage-green text-sage-green hover:bg-sage-light hover:text-deep-leaf rounded-sm text-xs uppercase tracking-widest font-bold transition">
+                        <i class="fa-solid fa-heart mr-2"></i> Add Plus One
+                    </button>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit" class="w-full bg-deep-leaf text-white py-4 rounded-sm text-xs uppercase tracking-[0.3em] font-bold hover:bg-sage-green transition shadow-lg jumpscare-hover">
+                        Submit Response
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div id="emailModal" class="modal" onclick="closeEmailModal(event)">
+        <div class="modal-content">
+            <span class="absolute top-4 right-4 text-2xl text-gray-400 cursor-pointer hover:text-red-400" onclick="document.getElementById('emailModal').style.display='none'">×</span>
+            <h3 class="font-serif text-2xl text-deep-leaf mb-4">Contact Us</h3>
+            <p class="text-gray-600 mb-6">Please email us at:</p>
+            <div class="bg-sage-light p-4 rounded border border-sage-green/30 select-all font-mono text-sm md:text-base break-words text-deep-leaf font-bold">
+                EmandJamesElwell2026@gmail.com
+            </div>
+            <button onclick="document.getElementById('emailModal').style.display='none'" class="mt-8 px-6 py-2 bg-deep-leaf text-white text-xs uppercase tracking-widest rounded-sm hover:bg-sage-green transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <footer class="py-16 bg-white/90 border-t border-sage-green/10 text-center">
+        <p class="font-serif text-2xl text-deep-leaf mb-2">Emily & James</p>
+        <div class="text-sage-green text-xs tracking-[0.5em] uppercase">25 . 07 . 2026</div>
+    </footer>
+
+    <script>
+    // MODAL FUNCTIONS
+    function openEmailModal() {
+        document.getElementById('emailModal').style.display = 'block';
+    }
+
+    function closeEmailModal(event) {
+        if (event.target == document.getElementById('emailModal')) {
+            document.getElementById('emailModal').style.display = 'none';
+        }
+    }
+
+    let guestCount = 1;
+
+    function toggleDietaryBox(checkbox) {
+        const box = checkbox.closest('.space-y-3').querySelector('.dietary-box');
+        if (checkbox.checked) {
+            box.classList.remove('hidden');
+        } else {
+            box.classList.add('hidden');
+            box.querySelector('textarea').value = ''; // Clear text if unchecked
+        }
+    }
+
+    function addGuest(type) {
+        const container = document.getElementById('guestsContainer');
+        const id = guestCount;
+        
+        const html = `
+            <div class="guest-entry border-b border-sage-green/20 pb-6 pt-6 relative fade-in" id="guest-${id}">
+                <button type="button" onclick="removeGuest(${id})" class="absolute top-6 right-0 text-gray-400 hover:text-red-400 transition">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-serif text-xl text-deep-leaf">${type}</h3>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block mb-2 text-xs uppercase tracking-widest font-bold text-deep-leaf">Full Name</label>
+                    <input type="text" name="guestName_${id}" required class="guest-name w-full p-3 bg-country-cream rounded-sm focus:ring-1 focus:ring-sage-green outline-none" placeholder="First & Last Name">
+                </div>
+
+                <div class="space-y-3">
+                    <label class="flex items-center p-3 bg-country-cream rounded-sm cursor-pointer hover:bg-sage-light transition">
+                        <input type="checkbox" name="attending_${id}" class="guest-attending w-5 h-5 accent-sage-green" checked>
+                        <span class="ml-3 font-medium text-gray-700">Will be attending</span>
+                    </label>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <label class="flex items-center flex-1">
+                            <input type="checkbox" name="vegetarian_${id}" class="guest-veg w-4 h-4 accent-sage-green">
+                            <span class="ml-3 text-sm text-gray-600">I require a vegetarian meal</span>
+                        </label>
+                        
+                        <label class="flex items-center flex-1">
+                            <input type="checkbox" class="dietary-toggle w-4 h-4 accent-sage-green" onchange="toggleDietaryBox(this)">
+                            <span class="ml-3 text-sm text-gray-600">I have dietary requirements</span>
+                        </label>
+                    </div>
+
+                    <div class="dietary-box hidden mt-2">
+                        <textarea name="dietaryDetails_${id}" class="guest-diet w-full p-3 bg-country-cream rounded-sm focus:ring-1 focus:ring-sage-green outline-none text-sm" placeholder="Please specify requirements..."></textarea>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.insertAdjacentHTML('beforeend', html);
+        guestCount++;
+    }
+
+    function removeGuest(id) {
+        document.getElementById(`guest-${id}`).remove();
+    }
+
+    const form = document.getElementById('rsvpForm');
+    const successMsg = document.getElementById('successMessage');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxJYFy6Gu2VbdaHQmKTxe2YGpbut1CN2RbU_8GALsNItywjqUlmXhqkcqLwV-JXZFQg/exec';
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // 1. GATHER DATA
+        let guests = [];
+        document.querySelectorAll('.guest-entry').forEach(entry => {
+            const name = entry.querySelector('.guest-name').value;
+            const attending = entry.querySelector('.guest-attending').checked ? "Yes" : "No";
+            const veg = entry.querySelector('.guest-veg').checked ? "Yes" : "No";
+            const diet = entry.querySelector('.guest-diet').value || "None";
+            
+            if(name) {
+                guests.push({
+                    name: name,
+                    attending: attending,
+                    vegetarian: veg,
+                    dietary: diet
+                });
+            }
+        });
+
+        // Create the payload for Google Sheets
+        const payload = JSON.stringify(guests);
+        document.getElementById('rsvpJson').value = payload;
+
+        // 2. SUBMIT
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerText;
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+
+        fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        })
+        .then(() => {
+            form.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            alert('Something went wrong. Please check your internet connection.');
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+        });
+    });
+    </script>
+
+</body>
+</html>
