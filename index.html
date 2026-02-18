@@ -303,6 +303,7 @@
                     </div>
                 </div>
             </div>
+        
             <div class="glass-panel p-10 mb-10 border border-sage-green/20">
                 <i class="fa-solid fa-campground text-4xl text-sage-green mb-6"></i>
                 <h3 class="text-2xl font-serif text-deep-leaf mb-4">Camping On-Site</h3>
@@ -310,7 +311,7 @@
                     For the adventurous (and those who want to be close to the party), there will be camping available at the venue.
                 </p>
                 <div class="inline-block bg-white px-6 py-3 rounded-sm border border-sage-green text-deep-leaf font-medium">
-                    Please feel free to bring your own tents or campervans!
+                    There is plenty of space available, so please feel free to bring your own tents or campervans!
                 </div>
             </div>
             
@@ -329,29 +330,25 @@
     <section id="gifts" class="py-24 container mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto">
             <div class="glass-panel p-10 mb-10">
-                <h2 class="text-4xl font-serif text-deep-leaf mb-10">Gifts</h2>
-                <div class="mb-10">
+                <h2 class="text-4xl font-serif text-deep-leaf mb-8">Gifts</h2>
+                <div class="mb-4">
                     <i class="fa-solid fa-plane-departure text-3xl text-sage-green mb-6"></i>
-                    <p class="text-gray-700 leading-loose text-lg font-light">
+                    <p class="text-gray-700 leading-loose text-lg font-light mb-6">
                         The most important gift to us is to have you share our day, but should you wish to contribute in some other way, then a help to our honeymoon would be very kind.
                     </p>
+                    
+                    <button onclick="openBankModal()" class="text-sm uppercase tracking-widest text-sage-green hover:text-deep-leaf underline font-bold bg-transparent border-none cursor-pointer transition">
+                        View Details
+                    </button>
                 </div>
             </div>
             
-            <div class="p-10 glass-panel border border-sage-green/20 rounded-sm shadow-lg relative">
-                <div class="absolute top-0 left-0 transform -translate-x-2 -translate-y-4 text-6xl text-sage-green/20 font-serif">“</div>
-                <p class="font-serif italic text-gray-600 leading-8">
-                    We’ve lived together for quite a while,<br>
-                    With all our pots and pans,<br>
-                    And as we don’t need homeware gifts,<br>
-                    We have another plan!<br><br>
-                    We know it’s not traditional,<br>
-                    But an awful lot of fun,<br>
-                    To have items on our wedding list,<br>
-                    To help us catch some sun!
-                </p>
-                <div class="absolute bottom-0 right-0 transform translate-x-2 translate-y-4 text-6xl text-sage-green/20 font-serif rotate-180">“</div>
+            <div class="mb-10 flex justify-center">
+                <img src="https://raw.githubusercontent.com/EmandJamesElwell2026/Collage/main/Collage.png" 
+                     alt="Our Journey Through The Years" 
+                     class="rounded-sm shadow-xl max-w-full h-auto border-4 border-white md:w-2/3">
             </div>
+            
             <p class="mt-8 text-xs text-white uppercase tracking-widest drop-shadow-md font-bold text-shadow-md">Thank you</p>
         </div>
     </section>
@@ -445,13 +442,38 @@
         </div>
     </div>
 
+    <div id="bankModal" class="modal" onclick="closeBankModal(event)">
+        <div class="modal-content">
+            <span class="absolute top-4 right-4 text-2xl text-gray-400 cursor-pointer hover:text-red-400" onclick="document.getElementById('bankModal').style.display='none'">×</span>
+            <h3 class="font-serif text-2xl text-deep-leaf mb-4">Gift Details</h3>
+            
+            <p class="text-gray-600 mb-6">
+                Your company is the only gift we require, but if you’d like to help us celebrate our first adventure as newlyweds, a contribution toward our honeymoon fund would be amazing! We’ll have a post box on the day, or you can use the bank details below. Thank you for helping us make some lifelong memories!
+            </p>
+            
+            <div class="bg-sage-light p-6 rounded border border-sage-green/30 text-deep-leaf mb-6">
+                <p class="font-bold mb-2">Name: <span class="font-mono font-normal text-gray-800">J Elwell</span></p>
+                <p class="font-bold mb-2">Sort Code: <span class="font-mono font-normal text-gray-800">30-96-97</span></p>
+                <p class="font-bold">Account No: <span class="font-mono font-normal text-gray-800">68570368</span></p>
+            </div>
+
+            <p class="text-gray-500 italic text-sm mb-6">
+                "We are incredibly grateful for your kindness and generosity, helping us start our married life together."
+            </p>
+
+            <button onclick="document.getElementById('bankModal').style.display='none'" class="px-6 py-2 bg-deep-leaf text-white text-xs uppercase tracking-widest rounded-sm hover:bg-sage-green transition">
+                Close
+            </button>
+        </div>
+    </div>
+
     <footer class="py-16 bg-white/90 border-t border-sage-green/10 text-center">
         <p class="font-serif text-2xl text-deep-leaf mb-2">Emily & James</p>
         <div class="text-sage-green text-xs tracking-[0.5em] uppercase">25 . 07 . 2026</div>
     </footer>
 
     <script>
-    // MODAL FUNCTIONS
+    // EMAIL MODAL FUNCTIONS
     function openEmailModal() {
         document.getElementById('emailModal').style.display = 'block';
     }
@@ -459,6 +481,17 @@
     function closeEmailModal(event) {
         if (event.target == document.getElementById('emailModal')) {
             document.getElementById('emailModal').style.display = 'none';
+        }
+    }
+
+    // BANK MODAL FUNCTIONS
+    function openBankModal() {
+        document.getElementById('bankModal').style.display = 'block';
+    }
+
+    function closeBankModal(event) {
+        if (event.target == document.getElementById('bankModal')) {
+            document.getElementById('bankModal').style.display = 'none';
         }
     }
 
